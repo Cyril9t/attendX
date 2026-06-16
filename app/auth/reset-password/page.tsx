@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 // export const dynamic = "force-dynamic";
 
@@ -28,41 +28,44 @@
 //   token: z.string().optional(),
 // });
 
-// const ResetPassword = () => {
-//   const { control, handleSubmit } = useForm<z.infer<typeof EmailSchema>>({
-//     resolver: zodResolver(EmailSchema),
-//     defaultValues: {
-//       password: "",
-//     },
-//   });
-//   const searchParams = useSearchParams();
-//   const router = useRouter();
-//   const { trigger, isMutating } = useResetPassword();
+const ResetPassword = () => {
 
-//   const onSubmit = async (values: z.infer<typeof EmailSchema>) => {
-//     // try {
-//     //   const token = searchParams.get("token");
+    //   const { control, handleSubmit } = useForm<z.infer<typeof EmailSchema>>({
+    //     resolver: zodResolver(EmailSchema),
+    //     defaultValues: {
+    //       password: "",
+    //     },
+    //   });
+    //   const searchParams = useSearchParams();
+    //   const router = useRouter();
+    //   const { trigger, isMutating } = useResetPassword();
 
-//     //   if (!token) return toast.error("Invalid reset token");
+    //   const onSubmit = async (values: z.infer<typeof EmailSchema>) => {
+    //     // try {
+    //     //   const token = searchParams.get("token");
 
-//     //   values.token = token;
+    //     //   if (!token) return toast.error("Invalid reset token");
 
-//     //   const res = await trigger(values);
+    //     //   values.token = token;
 
-//     //   toast.success(res.message);
-//     //   router.push("/dashboard");
-//     // } catch (error: any) {
-//     //   if (error.response) {
-//     //     toast.error(error.response.data.error);
-//     //     return;
-//     //   }
-//     //   toast.error(error.message);
-//     // }
-//   };
+    //     //   const res = await trigger(values);
 
-//   return (
-//     <div className="w-1/2 flex min-h-screen items-center justify-center px-4">
-//       <Card className="w-full max-w-md">
+    //     //   toast.success(res.message);
+    //     //   router.push("/dashboard");
+    //     // } catch (error: any) {
+    //     //   if (error.response) {
+    //     //     toast.error(error.response.data.error);
+    //     //     return;
+    //     //   }
+    //     //   toast.error(error.message);
+    //     // }
+    //   };
+
+    return (
+
+        <div className="w-1/2 flex min-h-screen items-center justify-center px-4">
+            RESET PAGE
+            {/* //       <Card className="w-full max-w-md">
 //         <CardHeader className="space-y-2 text-center">
 //           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
 //             <RotateCcw />
@@ -114,9 +117,10 @@
 //             </Button>
 //           </form>
 //         </CardContent>
-//       </Card>
-//     </div>
-//   );
-// };
+//       </Card> */}
+        </div>
+    );
+};
 
-// export default ResetPassword;
+export default ResetPassword;
+

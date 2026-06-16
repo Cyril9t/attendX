@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 // export const dynamic = "force-dynamic";
 
@@ -20,52 +20,53 @@
 
 // const confirmRequest = (url: string) => axios.put(url).then((res) => res.data);
 
-// const page = () => {
-//   const [status, setStatus] = useState<"loading" | "success" | "error">(
-//     "loading",
-//   );
-//   const [message, setMessage] = useState("");
-//   const searchParams = useSearchParams();
-//   const token = searchParams.get("token");
-//   const router = useRouter();
+const page = () => {
+    //   const [status, setStatus] = useState<"loading" | "success" | "error">(
+    //     "loading",
+    //   );
+    //   const [message, setMessage] = useState("");
+    //   const searchParams = useSearchParams();
+    //   const token = searchParams.get("token");
+    //   const router = useRouter();
 
-//   const { trigger, error } = useSWRMutation(
-//     `/api/auth/verify-email?token=${token}`,
-//     confirmRequest,
-//   );
+    //   const { trigger, error } = useSWRMutation(
+    //     `/api/auth/verify-email?token=${token}`,
+    //     confirmRequest,
+    //   );
 
-//   const redirectToLogin = () => {
-//     return setTimeout(() => {
-//       router.replace("/auth/login");
-//     }, 3000);
-//   };
+    //   const redirectToLogin = () => {
+    //     return setTimeout(() => {
+    //       router.replace("/auth/login");
+    //     }, 3000);
+    //   };
 
-//   const confirmEmail = async () => {
-//     try {
-//       const res = await trigger();
+    //   const confirmEmail = async () => {
+    //     try {
+    //       const res = await trigger();
 
-//       setStatus("success");
-//       setMessage(res.message);
+    //       setStatus("success");
+    //       setMessage(res.message);
 
-//       redirectToLogin();
-//     } catch (error: any) {
-//       setStatus("error");
-//     }
-//   };
+    //       redirectToLogin();
+    //     } catch (error: any) {
+    //       setStatus("error");
+    //     }
+    //   };
 
-//   useEffect(() => {
-//     if (!token) {
-//       setStatus("error");
-//       setMessage("Missing verification token");
-//       return;
-//     }
+    //   useEffect(() => {
+    //     if (!token) {
+    //       setStatus("error");
+    //       setMessage("Missing verification token");
+    //       return;
+    //     }
 
-//     confirmEmail();
-//   }, [token]);
+    //     confirmEmail();
+    //   }, [token]);
 
-//   return (
-//     <div className="w-1/2 p-12 flex items-center justify-center">
-//       <Card className="md:w-[80%] mx-auto p-8 text-center flex flex-col items-center justify-center gap-2">
+    return (
+        <div className="w-1/2 p-12 flex items-center justify-center">
+            VERify
+            {/* //       <Card className="md:w-[80%] mx-auto p-8 text-center flex flex-col items-center justify-center gap-2">
 //         <Button
 //           variant={status === "error" ? "destructive" : "outline"}
 //           className="hover:bg-transparent"
@@ -122,9 +123,9 @@
 //             </Link>
 //           )}
 //         </CardContent>
-//       </Card>
-//     </div>
-//   );
-// };
+//       </Card> */}
+        </div>
+    );
+};
 
-// export default page;
+export default page;

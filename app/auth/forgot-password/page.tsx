@@ -1,4 +1,4 @@
-// "use client";
+"use client";
 
 // import Link from "next/link";
 
@@ -27,30 +27,31 @@
 //   email: z.email(),
 // });
 
-// const ForgotPassword = () => {
-//   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
-//   const [successMessage, setSuccessMessage] = useState("");
-//   const { control, handleSubmit } = useForm<z.infer<typeof EmailSchema>>({
-//     resolver: zodResolver(EmailSchema),
-//     defaultValues: {
-//       email: "",
-//     },
-//   });
-//   const { trigger, isMutating } = useForgotPassword();
+const ForgotPassword = () => {
+    //   const [isSubmitSuccess, setIsSubmitSuccess] = useState(false);
+    //   const [successMessage, setSuccessMessage] = useState("");
+    //   const { control, handleSubmit } = useForm<z.infer<typeof EmailSchema>>({
+    //     resolver: zodResolver(EmailSchema),
+    //     defaultValues: {
+    //       email: "",
+    //     },
+    //   });
+    //   const { trigger, isMutating } = useForgotPassword();
 
-//   const onSubmit = async (value: { email: string }) => {
-//     try {
-//       const res = await trigger(value);
-//       setSuccessMessage(res.message);
-//       setIsSubmitSuccess(true);
-//     } catch (error: any) {
-//       toast.error(error.response.data.error);
-//     }
-//   };
+    //   const onSubmit = async (value: { email: string }) => {
+    //     try {
+    //       const res = await trigger(value);
+    //       setSuccessMessage(res.message);
+    //       setIsSubmitSuccess(true);
+    //     } catch (error: any) {
+    //       toast.error(error.response.data.error);
+    //     }
+    //   };
 
-//   return (
-//     <div className="w-1/2 flex min-h-screen items-center justify-center px-4">
-//       <Card className="w-full max-w-md">
+    return (
+        <div className="w-1/2 flex min-h-screen items-center justify-center px-4">
+            FORGOT PASSWORD
+            {/* //       <Card className="w-full max-w-md">
 //         <CardHeader className="space-y-2 text-center">
 //           <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
 //             {isSubmitSuccess ? (
@@ -125,9 +126,9 @@
 //             </div>
 //           )}
 //         </CardContent>
-//       </Card>
-//     </div>
-//   );
-// };
+//       </Card> */}
+        </div>
+    );
+};
 
-// export default ForgotPassword;
+export default ForgotPassword;

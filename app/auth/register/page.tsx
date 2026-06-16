@@ -1,75 +1,76 @@
 "use client";
 
-import * as z from "zod";
-import { registerSchema } from "@/lib/validation/auth";
-import { Controller, useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2 } from "lucide-react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import {
-  Field,
-  FieldDescription,
-  FieldError,
-  FieldGroup,
-  FieldLabel,
-  FieldSeparator,
-} from "@/components/ui/field";
-import { Input } from "@/components/ui/input";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import useSWRMutation from "swr/mutation";
-import axios from "axios";
-import { useRouter } from "next/navigation";
-import { toast } from "sonner";
+// // import * as z from "zod";
+// // import { registerSchema } from "@/lib/validation/auth";
+// // import { Controller, useForm } from "react-hook-form";
+// // import { zodResolver } from "@hookform/resolvers/zod";
+// // import { Loader2 } from "lucide-react";
+// // import {
+// //   Card,
+// //   CardContent,
+// //   CardDescription,
+// //   CardHeader,
+// //   CardTitle,
+// // } from "@/components/ui/card";
+// // import {
+// //   Field,
+// //   FieldDescription,
+// //   FieldError,
+// //   FieldGroup,
+// //   FieldLabel,
+// //   FieldSeparator,
+// // } from "@/components/ui/field";
+// // import { Input } from "@/components/ui/input";
+// // import { Button } from "@/components/ui/button";
+// // import Link from "next/link";
+// // import useSWRMutation from "swr/mutation";
+// // import axios from "axios";
+// // import { useRouter } from "next/navigation";
+// // import { toast } from "sonner";
 
-const sendRequest = async (
-  url: string,
-  { arg }: { arg: z.infer<typeof registerSchema> },
-) => axios.post(url, arg).then((res) => res.data);
+// // const sendRequest = async (
+// //   url: string,
+// //   { arg }: { arg: z.infer<typeof registerSchema> },
+// ) => axios.post(url, arg).then((res) => res.data);
 
 const page = () => {
-  const { trigger, isMutating } = useSWRMutation<
-    { user: { id: string; email: string } },
-    any,
-    string,
-    z.infer<typeof registerSchema>
-  >("/api/auth/register", sendRequest);
-  const { control, handleSubmit } = useForm<z.infer<typeof registerSchema>>({
-    resolver: zodResolver(registerSchema),
-    defaultValues: {
-      fullName: "",
-      email: "",
-      password: "",
-    },
-  });
+  // const { trigger, isMutating } = useSWRMutation<
+  //   { user: { id: string; email: string } },
+  //   any,
+  //   string,
+  //   z.infer<typeof registerSchema>
+  // >("/api/auth/register", sendRequest);
+  // const { control, handleSubmit } = useForm<z.infer<typeof registerSchema>>({
+  //   resolver: zodResolver(registerSchema),
+  //   defaultValues: {
+  //     fullName: "",
+  //     email: "",
+  //     password: "",
+  //   },
+  // });
 
-  const router = useRouter();
+  // const router = useRouter();
 
-  const onSubmit = async (data: z.infer<typeof registerSchema>) => {
-    // try {
-    //   const { user } = await trigger(data);
-    //   sessionStorage.setItem("user", JSON.stringify(user));
+  // const onSubmit = async (data: z.infer<typeof registerSchema>) => {
+  // try {
+  //   const { user } = await trigger(data);
+  //   sessionStorage.setItem("user", JSON.stringify(user));
 
-    //   toast.success("Registration successful!");
-    //   router.push("/auth/verify-email");
-    // } catch (error: any) {
-    //   if (error.response) {
-    //     toast.error(error.response.data.error);
-    //     return;
-    //   }
-    //   toast.error(error.message);
-    // }
-  };
+  //   toast.success("Registration successful!");
+  //   router.push("/auth/verify-email");
+  // } catch (error: any) {
+  //   if (error.response) {
+  //     toast.error(error.response.data.error);
+  //     return;
+  //   }
+  //   toast.error(error.message);
+  // }
+  // };
 
   return (
     <div className="lg:w-1/2 w-full md:p-12 px-4 py-12 flex items-center justify-center">
-      <Card className="lg:w-[80%] w-full mx-auto">
+      REG page
+      {/* <Card className="lg:w-[80%] w-full mx-auto">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold">Join AttendX</CardTitle>
           <CardDescription>
@@ -174,7 +175,7 @@ const page = () => {
             </FieldGroup>
           </form>
         </CardContent>
-      </Card>
+      </Card> */}
     </div>
   );
 };
