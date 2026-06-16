@@ -18,7 +18,6 @@ import Link from "next/link";
 import { ComponentType } from "react";
 import { SquareArrowRightEnterIcon, User } from "lucide-react";
 import { toast } from "sonner";
-import { LogoutUser } from "@/lib/actions/logout-user";
 import SidebarLoader from "./loaders/sidebar-loader";
 
 export interface ItemsTypes {
@@ -33,14 +32,14 @@ export function DashboardSidebar({ items }: { items: ItemsTypes[] }) {
 
   if (isLoading) return <SidebarLoader />;
 
-  const handleLogout = () => {
-    try {
-      LogoutUser();
-      toast.success("Logged out successfully");
-    } catch (error: any) {
-      toast.error(error.messsage);
-    }
-  };
+  // const handleLogout = () => {
+  //   try {
+  //     LogoutUser();
+  //     toast.success("Logged out successfully");
+  //   } catch (error: any) {
+  //     toast.error(error.messsage);
+  //   }
+  // };
 
   return (
     <Sidebar collapsible="icon">
@@ -104,7 +103,7 @@ export function DashboardSidebar({ items }: { items: ItemsTypes[] }) {
 
                 <SidebarMenuItem>
                   <SidebarMenuButton
-                    onClick={handleLogout}
+                    // onClick={handleLogout}
                     className="hover:bg-muted/20 cursor-pointer"
                   >
                     <div className="flex gap-2">
