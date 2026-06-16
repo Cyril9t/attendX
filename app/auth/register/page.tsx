@@ -56,7 +56,7 @@ const page = () => {
       const { user } = await trigger(data);
       sessionStorage.setItem("user", JSON.stringify(user));
 
-      toast.success("Registeration sucessfull!");
+      toast.success("Registration successful!");
       router.push("/auth/verify-email");
     } catch (error: any) {
       if (error.response) {
