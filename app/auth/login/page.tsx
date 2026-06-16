@@ -1,78 +1,78 @@
 "use client";
 
-// import * as z from "zod";
-// import { loginSchema } from "@/lib/validation/auth";
-// import { Controller, useForm } from "react-hook-form";
-// import { zodResolver } from "@hookform/resolvers/zod";
-// import { Eye, EyeOff, Loader2 } from "lucide-react";
-// import {
-//   Card,
-//   CardContent,
-//   CardDescription,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card";
-// import {
-//   Field,
-//   FieldDescription,
-//   FieldError,
-//   FieldGroup,
-//   FieldLabel,
-//   FieldSeparator,
-// } from "@/components/ui/field";
-// import { Input } from "@/components/ui/input";
-// import { Button } from "@/components/ui/button";
-// import Link from "next/link";
-// import useSWRMutation from "swr/mutation";
-// import axios from "axios";
-// import { useRouter } from "next/navigation";
-// import { toast } from "sonner";
-// import { useState } from "react";
+import * as z from "zod";
+import { loginSchema } from "@/lib/validation/auth";
+import { Controller, useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { Eye, EyeOff, Loader2 } from "lucide-react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import {
+  Field,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldSeparator,
+} from "@/components/ui/field";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import Link from "next/link";
+import useSWRMutation from "swr/mutation";
+import axios from "axios";
+import { useRouter } from "next/navigation";
+import { toast } from "sonner";
+import { useState } from "react";
 
-// const sendRequest = async (
-//   url: string,
-//   { arg }: { arg: z.infer<typeof loginSchema> },
-// ) => axios.post(url, arg).then((res) => res.data);
+const sendRequest = async (
+  url: string,
+  { arg }: { arg: z.infer<typeof loginSchema> },
+) => axios.post(url, arg).then((res) => res.data);
 
 const page = () => {
-  // const [isVisible, setIsVisible] = useState(false);
-  // const { trigger, isMutating } = useSWRMutation<
-  //   { message: string },
-  //   string,
-  //   string,
-  //   z.infer<typeof loginSchema>
-  // >("/api/auth/login", sendRequest);
+  const [isVisible, setIsVisible] = useState(false);
+  const { trigger, isMutating } = useSWRMutation<
+    { message: string },
+    string,
+    string,
+    z.infer<typeof loginSchema>
+  >("/api/auth/login", sendRequest);
 
-  // const { control, handleSubmit } = useForm({
-  //   resolver: zodResolver(loginSchema),
-  //   defaultValues: {
-  //     email: "",
-  //     password: "",
-  //   },
-  // });
+  const { control, handleSubmit } = useForm({
+    resolver: zodResolver(loginSchema),
+    defaultValues: {
+      email: "",
+      password: "",
+    },
+  });
 
-  // const router = useRouter();
+  const router = useRouter();
 
-  // const onSubmit = async (data: z.infer<typeof loginSchema>) => {
-  //   try {
-  //     const res = await trigger(data);
+  const onSubmit = async (data: z.infer<typeof loginSchema>) => {
+    try {
+      const res = await trigger(data);
 
-  //     toast.success(res.message);
-  //     router.push("/dashboard");
-  //     router.refresh();
-  //   } catch (error: any) {
-  //     if (error.response) {
-  //       toast.error(error.response.data.error);
-  //       return;
-  //     }
-  //     toast.error(error.message);
-  //   }
-  // };
+      toast.success(res.message);
+      router.push("/dashboard");
+      router.refresh();
+    } catch (error: any) {
+      if (error.response) {
+        toast.error(error.response.data.error);
+        return;
+      }
+      toast.error(error.message);
+    }
+  };
 
   return (
     <div className="lg:w-1/2 w-full md:p-12 px-4 py-12 flex items-center justify-center">
       Login page
-      {/* <Card className="lg:w-[80%] lg:mt-0 mt-10 w-full mx-auto">
+      <Card className="lg:w-[80%] lg:mt-0 mt-10 w-full mx-auto">
         <CardHeader className="text-center">
           <CardTitle className="text-3xl font-bold">Welcome back</CardTitle>
           <CardDescription>
@@ -173,7 +173,7 @@ const page = () => {
             </FieldGroup>
           </form>
         </CardContent>
-      </Card> */}
+      </Card>
     </div>
   );
 };
