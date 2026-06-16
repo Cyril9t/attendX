@@ -21,47 +21,47 @@ import { useRouter, useSearchParams } from "next/navigation";
 const confirmRequest = (url: string) => axios.put(url).then((res) => res.data);
 
 const page = () => {
-    const [status, setStatus] = useState<"loading" | "success" | "error">(
-        "loading",
-    );
-    const [message, setMessage] = useState("");
-    const searchParams = useSearchParams();
-    const token = searchParams.get("token");
-    const router = useRouter();
+    // const [status, setStatus] = useState<"loading" | "success" | "error">(
+    //     "loading",
+    // );
+    // const [message, setMessage] = useState("");
+    // const searchParams = useSearchParams();
+    // const token = searchParams.get("token");
+    // const router = useRouter();
 
     // const { trigger, error } = useSWRMutation(
     //     `/api/auth/verify-email?token=${token}`,
     //     confirmRequest,
     // );
 
-    const redirectToLogin = () => {
-        return setTimeout(() => {
-            router.replace("/auth/login");
-        }, 3000);
-    };
+    // const redirectToLogin = () => {
+    //     return setTimeout(() => {
+    //         router.replace("/auth/login");
+    //     }, 3000);
+    // };
 
-    const confirmEmail = async () => {
-        try {
-            // const res = await trigger();
+    // const confirmEmail = async () => {
+    // try {
+    //     // const res = await trigger();
 
-            setStatus("success");
-            // setMessage(res.message);
+    //     setStatus("success");
+    //     // setMessage(res.message);
 
-            redirectToLogin();
-        } catch (error: any) {
-            setStatus("error");
-        }
-    };
+    //     redirectToLogin();
+    // } catch (error: any) {
+    //     setStatus("error");
+    // }
+    // };
 
-    useEffect(() => {
-        if (!token) {
-            setStatus("error");
-            setMessage("Missing verification token");
-            return;
-        }
+    // useEffect(() => {
+    // if (!token) {
+    // setStatus("error");
+    // setMessage("Missing verification token");
+    // return;
+    // }
 
-        confirmEmail();
-    }, [token]);
+    // confirmEmail();
+    // }, [token]);
 
     return (
         <div className="w-1/2 p-12 flex items-center justify-center">
@@ -82,7 +82,7 @@ const page = () => {
                 </Button>
 
                 <CardHeader className="w-full">
-                    {status !== "error" && (
+                    {/* {status !== "error" && (
                         <CardTitle className="text-2xl md:text-3xl font-bold">
                             {status === "loading"
                                 ? "Verifying your email"
@@ -90,7 +90,8 @@ const page = () => {
                                     ? "Email already verified"
                                     : "Email verified"}
                         </CardTitle>
-                    )}
+                    )} */}
+
                     {/* <CardDescription>
                         {status === "loading" ? (
                             "Please wait while your email is verified."
