@@ -40,22 +40,24 @@ const ResetPassword = () => {
   const { trigger, isMutating } = useResetPassword();
 
   const onSubmit = async (values: z.infer<typeof EmailSchema>) => {
-    try {
-      const token = searchParams.get("token");
+    // try {
+    //   const token = searchParams.get("token");
 
-      if (!token) return toast.error("Invalid reset token");
+    //   if (!token) return toast.error("Invalid reset token");
 
-      values.token = token;
-      const res = await trigger(values);
-      toast.success(res.message);
-      router.push("/dashboard");
-    } catch (error: any) {
-      if (error.response) {
-        toast.error(error.response.data.error);
-        return;
-      }
-      toast.error(error.message);
-    }
+    //   values.token = token;
+
+    //   const res = await trigger(values);
+
+    //   toast.success(res.message);
+    //   router.push("/dashboard");
+    // } catch (error: any) {
+    //   if (error.response) {
+    //     toast.error(error.response.data.error);
+    //     return;
+    //   }
+    //   toast.error(error.message);
+    // }
   };
 
   return (

@@ -155,8 +155,6 @@ export default function AttendanceTable() {
                         </div>
 
                         <div className="flex gap-2">
-
-
                             <Button variant={"default"}>
                                 Apply Filters
                             </Button>
