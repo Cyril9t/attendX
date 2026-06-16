@@ -52,19 +52,19 @@ const page = () => {
   const router = useRouter();
 
   const onSubmit = async (data: z.infer<typeof registerSchema>) => {
-    try {
-      const { user } = await trigger(data);
-      sessionStorage.setItem("user", JSON.stringify(user));
+    // try {
+    //   const { user } = await trigger(data);
+    //   sessionStorage.setItem("user", JSON.stringify(user));
 
-      toast.success("Registration successful!");
-      router.push("/auth/verify-email");
-    } catch (error: any) {
-      if (error.response) {
-        toast.error(error.response.data.error);
-        return;
-      }
-      toast.error(error.message);
-    }
+    //   toast.success("Registration successful!");
+    //   router.push("/auth/verify-email");
+    // } catch (error: any) {
+    //   if (error.response) {
+    //     toast.error(error.response.data.error);
+    //     return;
+    //   }
+    //   toast.error(error.message);
+    // }
   };
 
   return (
