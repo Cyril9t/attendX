@@ -29,10 +29,10 @@ const page = () => {
     const token = searchParams.get("token");
     const router = useRouter();
 
-    const { trigger, error } = useSWRMutation(
-        `/api/auth/verify-email?token=${token}`,
-        confirmRequest,
-    );
+    // const { trigger, error } = useSWRMutation(
+    //     `/api/auth/verify-email?token=${token}`,
+    //     confirmRequest,
+    // );
 
     const redirectToLogin = () => {
         return setTimeout(() => {
@@ -42,10 +42,10 @@ const page = () => {
 
     const confirmEmail = async () => {
         try {
-            const res = await trigger();
+            // const res = await trigger();
 
             setStatus("success");
-            setMessage(res.message);
+            // setMessage(res.message);
 
             redirectToLogin();
         } catch (error: any) {
@@ -91,7 +91,7 @@ const page = () => {
                                     : "Email verified"}
                         </CardTitle>
                     )}
-                    <CardDescription>
+                    {/* <CardDescription>
                         {status === "loading" ? (
                             "Please wait while your email is verified."
                         ) : status === "error" ? (
@@ -111,7 +111,7 @@ const page = () => {
                                 )}
                             </div>
                         )}
-                    </CardDescription>
+                    </CardDescription> */}
                 </CardHeader>
 
                 <CardContent className="w-full">
