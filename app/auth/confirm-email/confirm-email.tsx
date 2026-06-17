@@ -70,7 +70,6 @@ const ConfirmEmail = () => {
 
     return (
         <div className="w-1/2 p-12 flex items-center justify-center">
-            Confirm Email
             <Card className="md:w-[80%] mx-auto p-8 text-center flex flex-col items-center justify-center gap-2">
                 <Button
                     variant={status === "error" ? "destructive" : "outline"}
