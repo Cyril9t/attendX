@@ -1,72 +1,72 @@
 "use client";
 
-// export const dynamic = "force-dynamic";
+export const dynamic = "force-dynamic";
 
-// import { Button } from "@/components/ui/button";
-// import {
-//   Card,
-//   CardContent,
-//   CardDescription,
-//   CardHeader,
-//   CardTitle,
-// } from "@/components/ui/card";
-// import { CircleCheck, CircleX, LogIn, X } from "lucide-react";
-// import Link from "next/link";
-// import { Loader2 } from "lucide-react";
-// import axios from "axios";
-// import useSWRMutation from "swr/mutation";
-// import { useEffect, useState } from "react";
-// import { useRouter, useSearchParams } from "next/navigation";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { CircleCheck, CircleX, LogIn, X } from "lucide-react";
+import Link from "next/link";
+import { Loader2 } from "lucide-react";
+import axios from "axios";
+import useSWRMutation from "swr/mutation";
+import { useEffect, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 
-// const confirmRequest = (url: string) => axios.put(url).then((res) => res.data);
+const confirmRequest = (url: string) => axios.put(url).then((res) => res.data);
 
 const page = () => {
-    //   const [status, setStatus] = useState<"loading" | "success" | "error">(
-    //     "loading",
-    //   );
-    //   const [message, setMessage] = useState("");
-    //   const searchParams = useSearchParams();
-    //   const token = searchParams.get("token");
-    //   const router = useRouter();
+  const [status, setStatus] = useState<"loading" | "success" | "error">(
+    "loading",
+  );
+  const [message, setMessage] = useState("");
+  const searchParams = useSearchParams();
+  const token = searchParams.get("token");
+  const router = useRouter();
 
-    //   const { trigger, error } = useSWRMutation(
-    //     `/api/auth/verify-email?token=${token}`,
-    //     confirmRequest,
-    //   );
+  const { trigger, error } = useSWRMutation(
+    `/api/auth/verify-email?token=${token}`,
+    confirmRequest,
+  );
 
-    //   const redirectToLogin = () => {
-    //     return setTimeout(() => {
-    //       router.replace("/auth/login");
-    //     }, 3000);
-    //   };
+  const redirectToLogin = () => {
+    return setTimeout(() => {
+      router.replace("/auth/login");
+    }, 3000);
+  };
 
-    //   const confirmEmail = async () => {
-    //     try {
-    //       const res = await trigger();
+  const confirmEmail = async () => {
+    try {
+      const res = await trigger();
 
-    //       setStatus("success");
-    //       setMessage(res.message);
+      setStatus("success");
+      setMessage(res.message);
 
-    //       redirectToLogin();
-    //     } catch (error: any) {
-    //       setStatus("error");
-    //     }
-    //   };
+      redirectToLogin();
+    } catch (error: any) {
+      setStatus("error");
+    }
+  };
 
-    //   useEffect(() => {
-    //     if (!token) {
-    //       setStatus("error");
-    //       setMessage("Missing verification token");
-    //       return;
-    //     }
+  useEffect(() => {
+    if (!token) {
+      setStatus("error");
+      setMessage("Missing verification token");
+      return;
+    }
 
-    //     confirmEmail();
-    //   }, [token]);
+    confirmEmail();
+  }, [token]);
 
-    return (
-        <div className="w-1/2 p-12 flex items-center justify-center">
-            Confirm Email
-            {/* <Card className="md:w-[80%] mx-auto p-8 text-center flex flex-col items-center justify-center gap-2">
+  return (
+    <div className="w-1/2 p-12 flex items-center justify-center">
+      Confirm Email
+      {/* <Card className="md:w-[80%] mx-auto p-8 text-center flex flex-col items-center justify-center gap-2">
         <Button
           variant={status === "error" ? "destructive" : "outline"}
           className="hover:bg-transparent"
@@ -124,8 +124,8 @@ const page = () => {
           )}
         </CardContent>
       </Card> */}
-        </div>
-    );
+    </div>
+  );
 };
 
 export default page;
