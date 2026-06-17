@@ -18,7 +18,10 @@ import useSWRMutation from "swr/mutation";
 import { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 
-const confirmRequest = (url: string) => axios.put(url).then((res) => res.data);
+const confirmRequest = async (url: string, { arg }: { arg: string }) => {
+  const res = await axios.put(`${url}?token=${arg}`);
+  return res.data
+};
 
 const page = () => {
   const [status, setStatus] = useState<"loading" | "success" | "error">(
@@ -30,7 +33,7 @@ const page = () => {
   const router = useRouter();
 
   const { trigger, error } = useSWRMutation(
-    `/api/auth/verify-email?token=${token}`,
+    `/api/auth/verify-email`,
     confirmRequest,
   );
 
@@ -42,7 +45,10 @@ const page = () => {
 
   const confirmEmail = async () => {
     try {
-      const res = await trigger();
+
+      if (!token) return;
+
+      const res = await trigger(token);
 
       setStatus("success");
       setMessage(res.message);
