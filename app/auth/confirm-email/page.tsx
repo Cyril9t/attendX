@@ -10,6 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+
 import { CircleCheck, CircleX, LogIn, X } from "lucide-react";
 import Link from "next/link";
 import { Loader2 } from "lucide-react";
@@ -28,12 +29,11 @@ const page = () => {
     "loading",
   );
   const [message, setMessage] = useState("");
-  const searchParams = useSearchParams();
-  const token = searchParams.get("token");
+  // const searchParams = useSearchParams();
+  const token = ""
   const router = useRouter();
 
-  const { trigger, error } = useSWRMutation(
-    `/api/auth/verify-email`,
+  const { trigger, error } = useSWRMutation("/api/auth/verify-email",
     confirmRequest,
   );
 
@@ -72,7 +72,7 @@ const page = () => {
   return (
     <div className="w-1/2 p-12 flex items-center justify-center">
       Confirm Email
-      {/* <Card className="md:w-[80%] mx-auto p-8 text-center flex flex-col items-center justify-center gap-2">
+      <Card className="md:w-[80%] mx-auto p-8 text-center flex flex-col items-center justify-center gap-2">
         <Button
           variant={status === "error" ? "destructive" : "outline"}
           className="hover:bg-transparent"
@@ -129,7 +129,7 @@ const page = () => {
             </Link>
           )}
         </CardContent>
-      </Card> */}
+      </Card>
     </div>
   );
 };
